@@ -42,7 +42,7 @@ public class Serie implements Entregable {
 
 	@Override
 	public String toString() {
-		return "Serie [ENTREGADO=" + ENTREGADO + ", TEMPORADAS=" + TEMPORADAS + ", titulo=" + titulo + ", temporadas="
+		return "Serie [titulo=" + titulo + ", temporadas="
 				+ temporadas + ", entregado=" + entregado + ", genero=" + genero + ", creador=" + creador + "]";
 	}
 	
