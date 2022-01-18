@@ -1,5 +1,5 @@
 
-public class Videojuego {
+public class Videojuego implements Entregable {
 		
 	//Constantes
 	private final int HORASEST = 10;
@@ -85,6 +85,41 @@ public class Videojuego {
 
 	public void setCompañia(String compañia) {
 		this.compañia = compañia;
+	}
+	
+	
+	//Metodos de Entregable
+	@Override
+	public void entregar() {
+		entregado=true;
+		
+	}
+
+	@Override
+	public void devolver() {
+		entregado=false;
+		
+	}
+
+	@Override
+	public boolean isEntregado() {
+		if (entregado) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	@Override
+	public int compara(Object a) {
+
+		Videojuego vjpar = (Videojuego) a;
+		int diferencia = vjpar.horasEst - horasEst;
+		if (diferencia >= 0) {
+			return diferencia;
+		}else {
+			return Math.abs(diferencia);
+		}
 	}
 		
 }

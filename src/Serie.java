@@ -1,5 +1,5 @@
 
-public class Serie {
+public class Serie implements Entregable {
 	private final boolean ENTREGADO = false;
 	private final int TEMPORADAS = 3;
 	
@@ -78,6 +78,40 @@ public class Serie {
 
 	public void setCreador(String creador) {
 		this.creador = creador;
+	}
+	
+	
+	//Metodos de Entregable
+	@Override
+	public void entregar() {
+		entregado=true;
+		
+	}
+
+	@Override
+	public void devolver() {
+		entregado=false;
+		
+	}
+
+	@Override
+	public boolean isEntregado() {
+		if (entregado) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	@Override
+	public int compara(Object a) {
+		Serie vjpar = (Serie) a;
+		int diferencia = vjpar.temporadas - temporadas;
+		if (diferencia >= 0) {
+			return diferencia;
+		}else {
+			return Math.abs(diferencia);
+		}
 	}
 	
 	
